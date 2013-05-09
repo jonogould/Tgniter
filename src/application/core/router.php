@@ -69,10 +69,8 @@
 			//	Now call the requested function, fall back to index
 			if (method_exists($TG, $this->route[1]))	//	If the method with-in the specified class exists
 				call_user_func(array($TG, $this->route[1]), $this->args);
-			else if (method_exists($TG, 'index'))	//	If the index method in specified class exists
+			else	//	If the index method in specified class exists
 				call_user_func(array($TG, 'index'));
-			else	//	Fall back to index in defualt controller
-				call_user_func(array(new Controller, 'index'));
 			}
 
 		}
