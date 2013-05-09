@@ -10,7 +10,7 @@
 	*/
 
 	Config::set(array(
-			'base_url' 				=> '/suppliers_new/',
+			'base_url' 				=> '',
 			'error_reporting' 		=> error_reporting(\DEV_MODE ? E_ALL : 0),
 			'default_controller' 	=> 'home'
 		));
@@ -20,4 +20,4 @@
 	*	Initialise the router
 	*/
 
-	$router = new Router($config);
+	$router = new Router();

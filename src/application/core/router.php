@@ -38,13 +38,14 @@
 		*	Default constructor
 		*/
 
-		function __construct($config)
+		function __construct()
 			{
-			$this->route = (!empty($_GET['id'])) ? explode('/', ucwords($_GET['id'])) : array($config['default_controller']);
+			$this->route = (!empty($_GET['id'])) ? explode('/', ucwords($_GET['id'])) : array(Config::get('default_controller'));
 			$this->args = (!empty($_GET['args'])) ? $_GET['args'] : '';
 
 			//	Remove the first part
-			array_shift($this->route);
+			if(count($this->route) > 1)
+				array_shift($this->route);
 
 			//	Make the default function index
 			if (count($this->route) === 1)
