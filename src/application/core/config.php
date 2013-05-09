@@ -1,10 +1,24 @@
 <?php
 	
-	namespace Tgniter\Core;
-	
-	/*
-	*	You can change these config variables	
-	*/
+	namespace Tgniter;
 
-	$config['error_reporting'] = error_reporting(\DEV_MODE ? E_ALL : 0);
-	$config['default_controller'] = 'home';
+	class Config
+	{
+		static $values;
+
+		public static function get($value) {
+			if ($value == 'all') {
+				return self::$values;
+			}
+			else {
+				if (array_key_exists($value, self::$values))
+					return self::$values[$value];
+				else
+					return false;
+			}
+		}
+
+		public static function set($values) {
+			self::$values = $values;
+		}
+	}

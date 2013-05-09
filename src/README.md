@@ -33,7 +33,7 @@ Then edit your nginx.conf file (```/usr/local/etc/nginx/nginx.conf``` on OSX) to
 		listen       80;
 		server_name  tgniter;
 
-		root /Users/jono/Sites/tgniter/src;
+		root PATH_TO_SITE_ROOT;
 		index index.php index.html;
 
 		location / {
@@ -48,6 +48,28 @@ Then edit your nginx.conf file (```/usr/local/etc/nginx/nginx.conf``` on OSX) to
 		    fastcgi_param  SCRIPT_FILENAME  /scripts$fastcgi_script_name;
 		    include        fastcgi_params;
 		}
+	}
+
+OR
+
+If it will be in a sub-directory, then add it to your main 'server' declaration:
+
+	server {
+		
+		...
+
+		location / {
+			...
+		}
+
+	    location /SUB_DIR_NAME/ {
+	        autoindex on;
+
+	        try_files $uri $uri/ /index.php?id=$uri&args=$args;
+	    }
+
+	    ...
+
 	}
 
 That should be it
