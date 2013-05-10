@@ -9,6 +9,7 @@
 		*	route[1] = method in above class
 		*/
 
+		private $base;
 		private $route;
 		private $args;
 
@@ -40,6 +41,8 @@
 
 		function __construct()
 			{
+			$this->base = new Base();
+
 			if (!isset($_GET['id'])) {
 				$this->route = array(Config::get('default_controller'), 'index');
 			}
@@ -56,13 +59,17 @@
 					array_push($this->route, 'index');
 
 				//	Replace - with _
-				if (count($this->route) === 2)
+				if (count($this->route) > 2)
 					$this->route[1] = str_replace('-', '_', $this->route[1]);
 
 				//	Check for args
 				if (empty($this->args) && count($this->route) == 3)
 					$this->args = $this->route[2];
 			}
+
+			//	Set some configuration variables
+			Config::set(array('route' => $this->route));
+			Config::set(array('args' => $this->args));
 
 			//	Try to find the route and load the class, otherwise fall back to default core/controller.php
 			try
