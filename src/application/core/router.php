@@ -40,20 +40,29 @@
 
 		function __construct()
 			{
-			$this->route = (!empty($_GET['id'])) ? explode('/', ucwords($_GET['id'])) : array(Config::get('default_controller'));
-			$this->args = (!empty($_GET['args'])) ? $_GET['args'] : '';
+			if (!isset($_GET['id'])) {
+				$this->route = array(Config::get('default_controller'), 'index');
+			}
+			else {
+				$this->route = (!empty($_GET['id'])) ? explode('/', trim($_GET['id'], '/')) : array(Config::get('default_controller'));
+				$this->args = (!empty($_GET['args'])) ? $_GET['args'] : '';
 
-			//	Remove the first part
-			if(count($this->route) > 1)
-				array_shift($this->route);
+				//	Remove the first part
+				if(count($this->route) > 1)
+					array_shift($this->route);
 
-			//	Make the default function index
-			if (count($this->route) === 1)
-				array_push($this->route, 'index');
+				//	Make the default function index
+				if (count($this->route) === 1)
+					array_push($this->route, 'index');
 
-			//	Check for args
-			if (empty($this->args) && count($this->route) == 3)
-				$this->args = $this->route[2];
+				//	Replace - with _
+				if (count($this->route) === 2)
+					$this->route[1] = str_replace('-', '_', $this->route[1]);
+
+				//	Check for args
+				if (empty($this->args) && count($this->route) == 3)
+					$this->args = $this->route[2];
+			}
 
 			//	Try to find the route and load the class, otherwise fall back to default core/controller.php
 			try
