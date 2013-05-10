@@ -12,8 +12,14 @@
 		*				If $url empty, will go home.
 		*/
 
-		public static function send($url = '') {
-			$url = self::get('base_url') . $url;
+		public static function send($url = '', $args = '') {
+			if (is_array($args))
+				$args = implode('/', $args);
+
+			$url = self::get('base_url') . $url . (!empty($args) ? '/': '') . $args;
+			
+			//	Do the sending
 			header('Location: ' . $url);
+			exit;
 		}
 	}

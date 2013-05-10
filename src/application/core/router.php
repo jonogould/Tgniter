@@ -11,7 +11,7 @@
 
 		private $base;
 		private $route;
-		private $args;
+		private $args = '';
 
 
 		/*
@@ -86,7 +86,7 @@
 			if (method_exists($TG, $this->route[1]))	//	If the method with-in the specified class exists
 				call_user_func(array($TG, $this->route[1]), $this->args);
 			else	//	If the index method in specified class exists
-				call_user_func(array($TG, 'index'));
+				call_user_func(array($TG, 'index'), $this->route);
 			}
 
 		}
