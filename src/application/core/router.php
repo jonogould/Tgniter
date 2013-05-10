@@ -59,7 +59,7 @@
 					array_push($this->route, 'index');
 
 				//	Replace - with _
-				if (count($this->route) > 2)
+				if (count($this->route) >= 2)
 					$this->route[1] = str_replace('-', '_', $this->route[1]);
 
 				//	Check for args
