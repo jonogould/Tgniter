@@ -3,20 +3,26 @@ Tgniter
 
 Tgniter is an opinionated MVC framework that we use at TravelGround, developed to fit into an existing ecosystem.
 
-Tgniter, for now, provides [M]VC functionality ([M] for now as models have not been developed at this stage). Controllers and Views work perfectly well.
+Tgniter, for now, provides [M]VC functionality ([M] in brackets for now as models have not been developed at this stage). Controllers, Modules and Views work perfectly well.
 
 ### Where can I find my stuff?
 
 Config file:
-```tgniter/application/core/config.php```
+```tgniter/application/tgniter.php```
 
 Where do I put my controllers:
 ```tgniter/application/controllers/```
 
-Note: Controllers must inherit from the base controller found in ```core```
+Note: Controllers must inherit from the base controller class found in ```core```
 
 Where do I put my views:
 ```tgniter/application/views/```
+
+Where do I put my modules:
+```tgniter/application/modules/```
+
+Note: Controllers must inherit from the base module class found in ```core```
+
 
 ### Requirements
 
@@ -38,8 +44,8 @@ Then edit your nginx.conf file (```/usr/local/etc/nginx/nginx.conf``` on OSX) to
 
 		location / {
 		    autoindex on;
-
-		    try_files $uri $uri/ /index.php?id=$uri&args=$args;
+			
+		    try_files $uri $uri/ /index.php?id=$uri&$args;
 		}
 
 		location ~ \.php$ {
@@ -50,29 +56,9 @@ Then edit your nginx.conf file (```/usr/local/etc/nginx/nginx.conf``` on OSX) to
 		}
 	}
 
-OR
 
-If it will be in a sub-directory, then add it to your main 'server' declaration:
+That should be it, happy hacking!
 
-	server {
-		
-		...
-
-		location / {
-			...
-		}
-
-	    location /SUB_DIR_NAME/ {
-	        autoindex on;
-
-	        try_files $uri $uri/ /index.php?id=$uri&args=$args;
-	    }
-
-	    ...
-
-	}
-
-That should be it
 
 ### Notes
 
