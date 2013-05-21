@@ -12,9 +12,7 @@
 			'application/controllers/',
 			'application/models/',
 			'application/views/',
-			'application/',
-			'../classes/',
-			'../lib/'
+			'application/'
 		);
 
 		//	Remove namespace from class
