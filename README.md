@@ -7,19 +7,15 @@ Tgniter, for now, provides [M]VC functionality ([M] in brackets for now as model
 
 ### Where can I find my stuff?
 
-Config file:
-```tgniter/application/tgniter.php```
+Config file: ```tgniter/application/tgniter.php```
 
-Where do I put my controllers:
-```tgniter/application/controllers/```
+Where do I put my controllers: ```tgniter/application/controllers/```
 
 Note: Controllers must inherit from the base controller class found in ```core```
 
-Where do I put my views:
-```tgniter/application/views/```
+Where do I put my views: ```tgniter/application/views/```
 
-Where do I put my modules:
-```tgniter/application/modules/```
+Where do I put my modules: ```tgniter/application/modules/```
 
 Note: Controllers must inherit from the base module class found in ```core```
 
