@@ -31,7 +31,7 @@ Add ```127.0.0.1 tgniter``` to your /etc/hosts file.
 
 Then edit your nginx.conf file (```/usr/local/etc/nginx/nginx.conf``` on OSX) to include the following:
 
-  server {
+	server {
 		listen       80;
 		server_name  tgniter;
 
