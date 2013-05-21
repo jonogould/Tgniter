@@ -23,7 +23,7 @@
 
 			<div class="span6">
 				<h4>A thought</h4>
-				<p>Got any problems, suggestions, need help? <a href="mailto:jono.gould@travelground.com">jono.gould@travelground.com</a>.</p>
+				<p>Got any problems, suggestions, need help? <a href="https://github.com/TravelGround/Tgniter/issues">Issues page</a> on GitHub.</p>
 			</div>
 		</div>
 
