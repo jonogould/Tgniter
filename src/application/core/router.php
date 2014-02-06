@@ -19,7 +19,7 @@
 		*/
 
 		public function get_route() {
-			return $ruote;
+			return $this->route;
 		}
 
 		public function set_route($route) {
@@ -27,7 +27,7 @@
 		}
 
 		public function get_args() {
-			return $args;
+			return $this->args;
 		}
 
 		public function set_args($args) {
