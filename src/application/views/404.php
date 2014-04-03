@@ -3,8 +3,8 @@
 <head>
 	<meta charset="UTF-8">
 	<title>You are seriously lost!</title>
-	<link rel="stylesheet" href="/assets/css/bootstrap.min.css">
-	<link rel="stylesheet" href="/assets/css/style.css">
+	<link rel="stylesheet" href="<?php echo $base_url; ?>/assets/css/bootstrap.min.css">
+	<link rel="stylesheet" href="<?php echo $base_url; ?>/assets/css/style.css">
 </head>
 <body class="container">
 	<div class="container-narrow">
