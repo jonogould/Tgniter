@@ -3,13 +3,13 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Welcome to Tgniter</title>
-	<link rel="stylesheet" href="<?php echo $base_url; ?>/assets/css/bootstrap.min.css">
-	<link rel="stylesheet" href="<?php echo $base_url; ?>/assets/css/style.css">
+	<link rel="stylesheet" href="/assets/css/bootstrap.min.css">
+	<link rel="stylesheet" href="/assets/css/style.css">
 </head>
 <body>
 	<div class="container-narrow">
 		<div class="jumbotron">
-			<h1><img src="<?php echo $base_url; ?>/assets/img/logo.png"></h1>
+			<h1><img src="/assets/img/logo.png"></h1>
 			<p class="lead">You are seeing this page because you have successfully installed Tgniter. Tgniter is an opinionated MVC framework that we use at TravelGround, developed to fit into an existing ecosystem.</p>
 		</div>
 
